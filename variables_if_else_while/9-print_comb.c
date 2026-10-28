@@ -10,21 +10,27 @@ int main(void)
 {
 int i;
 int j;
+int k;
 
-for (i = '0'; i <= '9'; i++)
+for (i = '0'; i <= '8'; i++)
 {
 for (j = i + 1; j <= '9'; j++)
 {
 putchar(i);
 putchar(j);
-if (i != '8' || j != '9')
+if (i == '8' && j == '9')
 {
-putchar(',');
-putchar(' ');
+k = '\n';
+}
+else
+{
+k = ',';
+putchar(k);
+k = ' ';
+}
+putchar(k);
 }
 }
-}
-putchar('\n');
 
 return (0);
 }
