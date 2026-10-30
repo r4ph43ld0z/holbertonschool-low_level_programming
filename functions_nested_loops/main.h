@@ -1,5 +1,5 @@
-#ifndef MAIN._H
-#define MAIN._H
+#ifndef MAIN_H
+#define MAIN_H
 
 /**
  * File: main.h
@@ -7,6 +7,6 @@
  * Desc: Header file containing declarations for all functions
  */
 
-int _putchar(char c);
+int _putchar(char *c);
 
-#endif /* MAIN._H */
+#endif /* MAIN_H */
