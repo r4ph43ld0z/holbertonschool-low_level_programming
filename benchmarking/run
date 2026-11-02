@@ -3,4 +3,4 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long-long baseline_loop.c -o
 
 for i in 1 2 3; do
   echo "## Run $i"; echo '```'; ./baseline_loop; echo '```'; echo
-done > baseline_loop-metrics.m
+done > baseline_loop-metrics.md

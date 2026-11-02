@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long-long comparison_algorithms.c -o comparison_algorithms
+
+echo "# Algorithmic Efficiency Comparison" > comparison_algorithms-metrics.md
+
+for i in 1 2 3
+do
+    echo "Execution $i"
+
+    ./comparison_algorithms >> comparison_algorithms-metrics.md
+done
+
+echo "Results saved in comparison_algorithms-metrics.md"
