@@ -41,5 +41,5 @@ result -= digit;
 s++;
 }
 
-return (sign == -1) ? result : -result;
+return ((sign == -1) ? result : -result);
 }
