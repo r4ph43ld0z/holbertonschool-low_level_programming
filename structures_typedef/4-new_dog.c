@@ -24,17 +24,6 @@ return (copy);
 }
 
 /**
- * free_dog - frees a dog structure
- * @dog: dog to free
- */
-void free_dog(dog_t *dog)
-{
-free(dog->name);
-free(dog->owner);
-free(dog);
-}
-
-/**
  * new_dog - creates a new dog
  * @name: dog's name
  * @age: dog's age
@@ -59,7 +48,8 @@ return (NULL);
 dog->owner = copy_string(owner);
 if (dog->owner == NULL)
 {
-free_dog(dog);
+free(dog->name);
+free(dog);
 return (NULL);
 }
 dog->age = age;
