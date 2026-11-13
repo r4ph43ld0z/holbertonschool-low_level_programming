@@ -59,6 +59,24 @@ result = a * b;
 printf("Result: %d\n", result);
 }
 
+else if (choice == 4)
+{
+printf("A: ");
+scanf("%d", &a);
+
+printf("B: ");
+scanf("%d", &b);
+
+if (b == 0)
+{
+printf("Error: Division by zero\n");
+}
+else
+{
+result = a / b;
+printf("Result: %d\n", result);
+}
+}
 } while (choice != 0);
 
 printf("Bye!\n");
