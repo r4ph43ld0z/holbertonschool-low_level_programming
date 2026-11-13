@@ -3,62 +3,65 @@
 #include "dog.h"
 
 /**
+ * copy_string - copies a string
+ * @str: string to copy
+ * Return: pointer to copy or NULL
+ */
+char *copy_string(char *str)
+{
+char *copy;
+int i;
+
+for (i = 0; str[i]; i++)
+;
+copy = malloc(i + 1);
+if (copy == NULL)
+return (NULL);
+for (i = 0; str[i]; i++)
+copy[i] = str[i];
+copy[i] = '\0';
+return (copy);
+}
+
+/**
+ * free_dog - frees a dog structure
+ * @dog: dog to free
+ */
+void free_dog(dog_t *dog)
+{
+free(dog->name);
+free(dog->owner);
+free(dog);
+}
+
+/**
  * new_dog - creates a new dog
  * @name: dog's name
  * @age: dog's age
  * @owner: dog's owner
- *
- * Return: pointer to the new dog, or NULL if it fails
+ * Return: pointer to new dog or NULL
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 dog_t *dog;
-char *dog_name;
-char *dog_owner;
-int i;
-int j;
 
 if (name == NULL || owner == NULL)
 return (NULL);
-
-i = 0;
-while (name[i] != '\0')
-i++;
-
-j = 0;
-while (owner[j] != '\0')
-j++;
-
 dog = malloc(sizeof(dog_t));
 if (dog == NULL)
 return (NULL);
-
-dog_name = malloc(i + 1);
-if (dog_name == NULL)
+dog->name = copy_string(name);
+if (dog->name == NULL)
 {
 free(dog);
 return (NULL);
 }
-
-dog_owner = malloc(j + 1);
-if (dog_owner == NULL)
+dog->owner = copy_string(owner);
+if (dog->owner == NULL)
 {
-free(dog_name);
-free(dog);
+free_dog(dog);
 return (NULL);
 }
-
-for (i = 0; name[i] != '\0'; i++)
-dog_name[i] = name[i];
-dog_name[i] = '\0';
-
-for (j = 0; owner[j] != '\0'; j++)
-dog_owner[j] = owner[j];
-dog_owner[j] = '\0';
-
-dog->name = dog_name;
 dog->age = age;
-dog->owner = dog_owner;
-
 return (dog);
 }
